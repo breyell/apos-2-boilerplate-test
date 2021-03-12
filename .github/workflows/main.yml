@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: <production-branch-name>
+    branches: main
 
 jobs:
   multi:
