@@ -12,12 +12,12 @@ RUN mkdir scripts
 RUN npm install -g m
 RUN apt-get -y update
 RUN apt-get -y install scons
-RUN m 12
+RUN m 4.4
 RUN m tools stable
 RUN npm install -g pm2
 COPY . ./
 RUN ./scripts/docker-build-assets-with-temporary-mongod
-RUN m rm 12
+RUN m rm 4.4
 EXPOSE 3000
 ENTRYPOINT [ "./scripts/docker-wait-for-port", "mongo:27017", "--" ]
 # Load balance at least 2 copies
