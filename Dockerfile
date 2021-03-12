@@ -17,7 +17,7 @@ RUN m tools stable
 RUN npm install -g pm2
 COPY . ./
 RUN ./scripts/docker-build-assets-with-temporary-mongod
-RUN m rm 3.6
+RUN m rm 12
 EXPOSE 3000
 ENTRYPOINT [ "./scripts/docker-wait-for-port", "mongo:27017", "--" ]
 # Load balance at least 2 copies
