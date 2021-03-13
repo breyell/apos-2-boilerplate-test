@@ -12,7 +12,7 @@ RUN mkdir scripts
 RUN npm install -g m
 RUN apt-get -y update
 RUN apt-get -y install scons
-RUN m 4.4
+RUN m 4.2
 RUN m tools stable
 RUN npm install -g pm2
 COPY . ./
