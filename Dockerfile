@@ -9,14 +9,15 @@ RUN mkdir scripts
 # the asset build task does not encounter problems initializing modules
 # that expect a database. We do not actually need this database in the
 # container, so uninstall it at the end
-RUN apt install mongodb=4.2
-RUN systemctl enable mongodb
-RUN systemctl start mongodb
+RUN npm install -g m
 RUN apt-get -y update
 RUN apt-get -y install scons
+RUN m 4.4
+RUN m tools stable
 RUN npm install -g pm2
 COPY . ./
 RUN ./scripts/docker-build-assets-with-temporary-mongod
+RUN m rm 4.4
 EXPOSE 3000
 ENTRYPOINT [ "./scripts/docker-wait-for-port", "mongo:27017", "--" ]
 # Load balance at least 2 copies
