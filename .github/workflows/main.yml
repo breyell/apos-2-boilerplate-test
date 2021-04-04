@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
 jobs:
-  gumtree_docker:
+  build_push:
     runs-on: ubuntu-latest
     steps:
       -
@@ -21,7 +21,7 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          registry: registry.ecg.apostrophe-cloud.app
+          registry: registry.brendon.codes
           username: admin # This can also be a secret
           password: ${{ secrets.REGISTRY_PASSWORD }}
       -
